@@ -1,0 +1,18 @@
+{
+  "rules": [
+    {
+      "repository": "*/*",
+      "reason": "*",
+      "state": "closed",
+      "type": "*",
+      "action": "done"
+    },
+    {
+      "repository": "*/*",
+      "reason": "*",
+      "state": "open",
+      "type": "*",
+      "action": "done"
+    }
+  ]
+}
