@@ -1,5 +1,3 @@
-
-
 ```json
 {
   "rules": [
@@ -19,21 +17,25 @@
     }
   ]
 }
-
 ```
 
 ### Repository
-`*/*` = all repositories
-`*/dotfiles` = all repositories that named dotfiles
+
+`*/*` = all repositories `*/dotfiles` = all repositories that named dotfiles
 `octcat/*` = all repositories that octcat owned
 
 ### State
-state is obtained by `gh api notifications | jq '.[].subject.url'` by further calling `gh api ${url} | jq '.state'`
+
+state is obtained by `gh api notifications | jq '.[].subject.url'` by further
+calling `gh api ${url} | jq '.state'`
 
 ### Reason
-definition of *reason* is [here](https://docs.github.com/rest/activity/notifications?apiVersion=2022-11-28#about-notification-reasons)
+
+definition of _reason_ is
+[here](https://docs.github.com/rest/activity/notifications?apiVersion=2022-11-28#about-notification-reasons)
 
 ### Type
+
 currently support type are "Issue" and "PullRequest".
 
 definition of type is `gh api notifications | jq '.[].subject.type'`

@@ -1,7 +1,7 @@
 {
   "tasks": {
     "run": "deno run --allow-all main.ts",
-    "dry-run":"SILENCER_DRY_RUN=true deno run --allow-all main.ts",
+    "dry-run": "SILENCER_DRY_RUN=true deno run --allow-all main.ts",
     "init": "mkdir -p ~/.config/silencer;curl 'https://raw.githubusercontent.com/shoppingjaws/silencer/main/config/config.json' > ~/.config/silencer/config.json; echo 'edit ~/.config/silencer/config.json'"
   }
 }

@@ -16,7 +16,7 @@
       "action": "done"
     }
   ],
-  "log":{
+  "log": {
     "console": "INFO",
     "file": "DEBUG"
   }

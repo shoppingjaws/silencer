@@ -6,8 +6,6 @@ import { globToRegExp } from "https://deno.land/std@0.213.0/path/glob_to_regexp.
 import { markAsRead } from "./github.ts";
 import { config } from "./config.ts";
 
-
-
 const rules = config.rules;
 
 const notifications = await lsitNotifications();
@@ -54,9 +52,9 @@ Logger.debug(
   `These notification will be read ${readTarget.map((r) => r.n.url)}`,
 );
 
-const DRY_RUN = Deno.env.get("SILENCER_DRY_RUN")
+const DRY_RUN = Deno.env.get("SILENCER_DRY_RUN");
 
-if(DRY_RUN) Deno.exit(0)
+if (DRY_RUN) Deno.exit(0);
 
 const readTasks = readTarget.map(async (r) => {
   await markAsRead(r.n.url);
