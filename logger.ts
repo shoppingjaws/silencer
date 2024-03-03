@@ -1,9 +1,8 @@
 import * as log from "https://deno.land/std@0.212.0/log/mod.ts";
-import { SILENCER_HOME } from "./config.ts";
 import { config } from "./config.ts";
 
 // 出力ファイル名
-const filename = `${SILENCER_HOME}/silencer.log`;
+const filename = `${Deno.env.get("HOME")}/.config/silencer/silencer.log`;
 
 // 出力フォーマット
 const formatter = "{datetime} {levelName} {msg}";

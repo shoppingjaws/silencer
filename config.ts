@@ -1,5 +1,3 @@
-const DEV = false;
-
 export type Type = "Issue" | "PullRequest";
 
 export type Action = "done" | "read";
@@ -37,10 +35,6 @@ export type Config = {
   };
 };
 
-export const SILENCER_HOME = DEV
-  ? `${Deno.env.get("PWD")}/config`
-  : `${Deno.env.get("HOME")}/.config/silencer`;
-
 export const config = JSON.parse(
-  await Deno.readTextFile(`${SILENCER_HOME}/config.json`),
+  await Deno.readTextFile(`${Deno.env.get("HOME")}/.config/silencer/config.json`),
 ) as Config;
