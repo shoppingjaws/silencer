@@ -7,7 +7,7 @@
       "repository": "*/*", // matches any repository
       "reason": "mentioned", // receiving notification because of the mention
       "state": "closed", // if the notification subject is closed
-      "type": "*", // 
+      "type": "*",
       "action": "done" // mark done
     },
     {
