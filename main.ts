@@ -1,14 +1,12 @@
-import { Config, SILENCER_HOME } from './config.ts';
-import { lsitNotifications } from './notification.ts';
-import { markAsDone } from './github.ts';
-import { Logger } from './logger.ts';
-import { fetchGhIssueOrPr } from './github.ts';
-import { globToRegExp } from 'https://deno.land/std@0.213.0/path/glob_to_regexp.ts';
-import { markAsRead } from './github.ts';
+import { lsitNotifications } from "./notification.ts";
+import { markAsDone } from "./github.ts";
+import { Logger } from "./logger.ts";
+import { fetchGhIssueOrPr } from "./github.ts";
+import { globToRegExp } from "https://deno.land/std@0.213.0/path/glob_to_regexp.ts";
+import { markAsRead } from "./github.ts";
+import { config } from "./config.ts";
 
-const config = JSON.parse(
-  await Deno.readTextFile(`${SILENCER_HOME}/config.json`)
-) as Config;
+
 
 const rules = config.rules;
 
@@ -23,8 +21,8 @@ const tasks = notifications.map(async (n) => {
 
 const data = await Promise.all(tasks);
 
-const readRule = rules.filter((r) => r.action === 'read');
-const doneRule = rules.filter((r) => r.action === 'done');
+const readRule = rules.filter((r) => r.action === "read");
+const doneRule = rules.filter((r) => r.action === "done");
 
 const readTarget = data.filter((d) => {
   const matched = readRule.filter((r) => {
@@ -45,14 +43,20 @@ const doneTarget = data.filter((d) =>
       globToRegExp(r.reason).test(d.n.reason) &&
       globToRegExp(r.repository).test(d.n.repository.full_name) &&
       globToRegExp(r.state).test(d.n.repository.full_name) &&
-      globToRegExp(r.type).test(d.n.subject.type)
+      globToRegExp(r.type).test(d.n.subject.type),
   )
 );
 
-// Logger.debug(`These notification will be done ${doneTarget.map(d=>d.n.url)}`)
 Logger.debug(
-  `These notification will be read ${readTarget.map((r) => r.n.url)}`
+  `These notification will be done ${doneTarget.map((d) => d.n.url)}`,
 );
+Logger.debug(
+  `These notification will be read ${readTarget.map((r) => r.n.url)}`,
+);
+
+const DRY_RUN = Deno.env.get("SILENCER_DRY_RUN")
+
+if(DRY_RUN) Deno.exit(0)
 
 const readTasks = readTarget.map(async (r) => {
   await markAsRead(r.n.url);

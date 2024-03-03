@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Silencer schema",
+  "type": "object",
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "repository": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "approval_requested",
+              "assign",
+              "author",
+              "comment",
+              "ci_activity",
+              "invitation",
+              "manual",
+              "member_feature_requested",
+              "mention",
+              "review_requested",
+              "security_alert",
+              "security_advisory_credit",
+              "state_change",
+              "subscribed",
+              "eam_mention"
+            ]
+          },
+          "state": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Issue", "PullRequest"]
+          },
+          "action": {
+            "type": "string",
+            "enum": ["read", "done"]
+          }
+        },
+        "required": ["repository", "reason", "state", "type", "action"]
+      }
+    },
+    "log": {
+      "type": "object",
+      "properties": {
+        "console": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO"]
+        },
+        "file": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO"]
+        }
+      },
+      "required": ["console", "file"]
+    }
+  },
+  "required": ["rules", "log"]
+}

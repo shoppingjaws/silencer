@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/shoppingjaws/silencer/main/config/config.schema.json",
   "rules": [
     {
       "repository": "*/*",
@@ -14,5 +15,9 @@
       "type": "*",
       "action": "done"
     }
-  ]
+  ],
+  "log":{
+    "console": "INFO",
+    "file": "DEBUG"
+  }
 }

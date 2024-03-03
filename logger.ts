@@ -1,21 +1,21 @@
-import * as log from "https://deno.land/std@0.212.0/log/mod.ts";
-import { SILENCER_HOME } from "./config.ts";
-
+import * as log from 'https://deno.land/std@0.212.0/log/mod.ts';
+import { SILENCER_HOME } from './config.ts';
+import { config } from "./config.ts";
 
 // 出力ファイル名
 const filename = `${SILENCER_HOME}/silencer.log`;
 
 // 出力フォーマット
-const formatter = "{datetime} {levelName} {msg}";
+const formatter = '{datetime} {levelName} {msg}';
 await log.setup({
   handlers: {
     // console出力形式の定義
-    console: new log.ConsoleHandler("DEBUG", {
+    console: new log.ConsoleHandler(config.log.console, {
       formatter,
     }),
 
     // file出力形式の定義
-    file: new log.FileHandler("DEBUG", {
+    file: new log.FileHandler(config.log.file, {
       filename,
       formatter,
     }),
@@ -23,8 +23,8 @@ await log.setup({
 
   loggers: {
     default: {
-      level: "DEBUG",
-      handlers: ["console", "file"],
+      level: 'DEBUG',
+      handlers: ['console', 'file'],
     },
   },
 });
