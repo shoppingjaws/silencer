@@ -9,7 +9,7 @@ type Notification = {
   url: string;
 };
 
-export const lsitNotifications = async (param?: string) => {
+export const listNotifications = async (param?: string) => {
   const queryParam = param ? "?" + param : "";
   const notifications = JSON.parse(
     await $`gh api notifications${queryParam}`.text(),

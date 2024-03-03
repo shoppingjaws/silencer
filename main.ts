@@ -1,4 +1,4 @@
-import { lsitNotifications } from './notification.ts';
+import { listNotifications } from './notification.ts';
 import { markAsDone } from './github.ts';
 import { Logger } from './logger.ts';
 import { fetchGhIssueOrPr } from './github.ts';
@@ -10,7 +10,7 @@ import { DRY_RUN } from './cli.ts';
 export const run = async () => {
   const rules = config.rules;
 
-  const notifications = await lsitNotifications();
+  const notifications = await listNotifications();
 
   Logger.debug(`notifications are found ${notifications.length}`);
 
