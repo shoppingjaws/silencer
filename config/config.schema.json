@@ -8,12 +8,17 @@
       "items": {
         "type": "object",
         "properties": {
+          "priority": { "type": "integer" },
+          "description":{"type":"string"},
           "repository": {
-            "type": "string"
+            "type": "string",
+            "default": "*/*",
+            "examples": ["*/*", "owner/*", "owner/repository", "*/repository"]
           },
           "reason": {
             "type": "string",
-            "enum": [
+            "default": "*",
+            "examples": [
               "approval_requested",
               "assign",
               "author",
@@ -28,38 +33,87 @@
               "security_advisory_credit",
               "state_change",
               "subscribed",
-              "eam_mention"
+              "team_mention",
+              "*"
             ]
-          },
-          "state": {
-            "type": "string"
           },
           "type": {
             "type": "string",
             "enum": ["Issue", "PullRequest"]
           },
+          "condition": { "type": "object" },
           "action": {
+            "default": "done",
             "type": "string",
             "enum": ["read", "done"]
           }
         },
-        "required": ["repository", "reason", "state", "type", "action"]
+        "required": ["action", "type", "reason", "priority"],
+        "oneOf": [
+          {
+            "properties": {
+              "type": { "const": "PullRequest" },
+              "condition": {
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "examples": ["open", "closed", "merged", "*"]
+                  },
+                  "title": {
+                    "description": "Github PullRequest title",
+                    "type": "string"
+                  },
+                  "label": {
+                    "description": "Occurs if any one of the GH PullRequest labels matches",
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "required": ["type"]
+          },
+          {
+            "properties": {
+              "type": { "const": "Issue" },
+              "condition": {
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "examples": ["open", "closed", "*"]
+                  },
+                  "title": {
+                    "description": "Github Issue title",
+                    "type": "string"
+                  },
+                  "label": {
+                    "description": "Occurs if any one of the GH Issue labels matches",
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "required": ["type"]
+          }
+        ]
+      },
+      "required": ["repository", "reason", "state", "type", "action"]
+    }
+  },
+  "log": {
+    "type": "object",
+    "properties": {
+      "console": {
+        "type": "string",
+        "enum": ["DEBUG", "INFO"]
+      },
+      "file": {
+        "type": "string",
+        "enum": ["DEBUG", "INFO"]
       }
     },
-    "log": {
-      "type": "object",
-      "properties": {
-        "console": {
-          "type": "string",
-          "enum": ["DEBUG", "INFO"]
-        },
-        "file": {
-          "type": "string",
-          "enum": ["DEBUG", "INFO"]
-        }
-      },
-      "required": ["console", "file"]
-    }
+    "required": ["console", "file"]
   },
   "required": ["rules", "log"]
 }

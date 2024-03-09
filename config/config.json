@@ -1,23 +1,25 @@
 {
-  "$schema": "https://raw.githubusercontent.com/shoppingjaws/silencer/main/config/config.schema.json",
+  "$schema": "./config.schema.json",
   "rules": [
     {
+      "priority": 100,
+      "description":"All PRs",
       "repository": "*/*",
-      "reason": "*",
-      "state": "closed",
-      "type": "*",
+      "reason": "subscribed",
+      "type": "PullRequest",
       "action": "done"
     },
     {
+      "priority": 50,
+      "description":"All PRs",
       "repository": "*/*",
-      "reason": "*",
-      "state": "open",
-      "type": "*",
+      "reason": "subscribed",
+      "type": "PullRequest",
       "action": "done"
     }
   ],
   "log": {
-    "console": "INFO",
-    "file": "DEBUG"
+    "console": "DEBUG",
+    "file": "INFO"
   }
 }

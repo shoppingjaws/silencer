@@ -1,12 +1,12 @@
 import $ from "https://deno.land/x/dax@0.39.2/mod.ts";
-import { Reason, Type } from "./config.ts";
-import { Logger } from "./logger.ts";
+import {  Type } from "./config.ts";
 
-type Notification = {
+export type Notification = {
   subject: { title: string; type: Type; url: string };
-  reason: Reason;
+  reason: string;
   repository: { full_name: string };
   url: string;
+  id: string;
 };
 
 export const listNotifications = async (param?: string) => {

@@ -3,3 +3,36 @@ Sun Mar 03 2024 20:40:40 GMT+0900 (Japan Standard Time) DEBUG These notification
 Sun Mar 03 2024 20:45:32 GMT+0900 (Japan Standard Time) DEBUG notifications are found 0
 Sun Mar 03 2024 20:45:32 GMT+0900 (Japan Standard Time) DEBUG These notification will be done 
 Sun Mar 03 2024 20:45:32 GMT+0900 (Japan Standard Time) DEBUG These notification will be read 
+3/9/24, 9:36:45 PM DEBUG Config is loaded: from /Users/shoppingjaws/ghq/github.com/shoppingjaws/silencer/config
+3/9/24, 9:36:45 PM INFO Notificaitons : length = 50
+3/9/24, 9:36:45 PM DEBUG Notification[9594963541}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=DIRECTION-33 NE...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[9594963541] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM DEBUG Notification[9514843973}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=DIRECTION-31 (4...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[9514843973] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM DEBUG Notification[9402760288}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=DIRECTION-31 (3...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[9402760288] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM DEBUG Notification[8999656504}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=規定管理規定の修正案...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[8999656504] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM DEBUG Notification[8988352696}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=2023 サイトのフッターに ...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[8988352696] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM DEBUG Notification[8998874394}] got static evaluation: static=0, matched=2, type=PullRequest, reason=subscribed, title=DIRECTION-31 (2...
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=100
+3/9/24, 9:36:45 PM DEBUG 	└─ matched : description=All PRs, action=done, priority=50
+3/9/24, 9:36:45 PM DEBUG 		 └─ result[8998874394] : priority=100, description=All PRs, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=9594963541, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=9514843973, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=9402760288, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=8999656504, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=8988352696, action=done
+3/9/24, 9:36:45 PM INFO Execution plan : id=8998874394, action=done
+3/9/24, 9:36:45 PM INFO Silencer is closing: DryRun = true
